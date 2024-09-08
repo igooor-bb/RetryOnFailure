@@ -1,6 +1,6 @@
 # RetryOnFailure
 
-**Retry On Failure** is a Swift macro that provides a simple way to retry functions that might throw an error, automatically attempting them a specified number of times under the hood.
+**RetryOnFailure** is a Swift macro that provides a simple way to retry functions that might throw an error, automatically attempting them a specified number of times under the hood.
 
 Inspired by [Java's Aspect-Oriented Programming (AOP)](https://aspects.jcabi.com), this macro allows developers to avoid repetitive retry code and improve error handling in Swift.
 
@@ -18,6 +18,29 @@ The only technical requirement is Swift 6.
 The `BodyMacros` feature flag is enabled in the package to expose the macros. See ["Using Upcoming Feature Flags"](https://www.swift.org/blog/using-upcoming-feature-flags/) for more information.
 
 > Keep in mind that the macro was created as an experiment when I saw [BodyMacros appear in Swift](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0415-function-body-macros.md), so the source code can be used as a sample use case for new functionality that may still undergo changes before the final Swift release.
+
+## Installation
+
+To add **RetryOnFailure** to your Xcode project, follow these steps:
+
+1. Open your project in Xcode.
+2. Go to **File** > **Add Package Dependencies**.
+3. In the search bar, enter the URL of the repository:
+
+   ```plain
+   https://github.com/igooor-bb/RetryOnFailure
+   ```
+
+4. Choose the version or branch you wish to install.
+5. Click **Add Package**.
+
+Alternatively, you can add dependency to your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/igooor-bb/RetryOnFailure.git", from: "1.0.0")
+]
+```
 
 ## Macro Expansion
 
@@ -55,7 +78,7 @@ func fetchData() throws {
 
 An additional scope in the form of a block function is used to be able to return the value if required as well as exit the loop at the right time.
 
-Macro also supports async/await:
+The macro also supports async/await:
 
 ```swift
 @RetryOnFailure(retries: 3)
