@@ -71,6 +71,7 @@ func fetchData() throws {
             }
         }
     }
+    fatalError("Unknown error") // Unreachable, but necessary for the compiler to be calm.
 }
 ```
 
